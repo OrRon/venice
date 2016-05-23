@@ -45,7 +45,11 @@ module Venice
 
     def initialize(attributes = {})
       @quantity = Integer(attributes['quantity']) if attributes['quantity']
-      @product_id = attributes['product_id']
+      if attributes['product_id']
+        @product_id = attributes['product_id'] 
+      else
+        @product_id = attributes['receipt']['in_app']['product_id'] 
+      end
       @transaction_id = attributes['transaction_id']
       @purchased_at = DateTime.parse(attributes['purchase_date']) if attributes['purchase_date']
       @app_item_id = attributes['app_item_id']
