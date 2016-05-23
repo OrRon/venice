@@ -48,7 +48,7 @@ module Venice
       if attributes['product_id']
         @product_id = attributes['product_id'] 
       else
-        @product_id = attributes['receipt']['in_app']['product_id'] 
+        @product_id = attributes
       end
       @transaction_id = attributes['transaction_id']
       @purchased_at = DateTime.parse(attributes['purchase_date']) if attributes['purchase_date']
